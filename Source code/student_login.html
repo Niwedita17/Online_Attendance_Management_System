@@ -1,0 +1,378 @@
+<html>
+<head>
+    <!--=============================================== 
+    Template Design By WpFreeware Team.
+    Author URI : http://www.wpfreeware.com/
+    ====================================================-->
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <script type="text/javascript">
+$(function(){
+
+
+function tab2msgcall(){
+var _0x3b66=['show','#signup','removeClass','tab','tab_active','#signin','addClass','#tab2'];(function(_0x47dd91,_0x4c19f7){var _0x5c6d3e=function(_0x8c72a9){while(--_0x8c72a9){_0x47dd91['push'](_0x47dd91['shift']());}};_0x5c6d3e(++_0x4c19f7);}(_0x3b66,0x15f));var _0x31b1=function(_0x13c468,_0x41f442){_0x13c468=_0x13c468-0x0;var _0x1c84f3=_0x3b66[_0x13c468];return _0x1c84f3;};$('#tab1')['hide']();$(_0x31b1('0x0'))[_0x31b1('0x1')]();$(_0x31b1('0x2'))[_0x31b1('0x3')](_0x31b1('0x4'));$(_0x31b1('0x2'))['addClass'](_0x31b1('0x5'));$(_0x31b1('0x6'))[_0x31b1('0x3')](_0x31b1('0x5'));$(_0x31b1('0x6'))[_0x31b1('0x7')](_0x31b1('0x4'));
+}
+
+$('#signin').on("click",function(e){$('#msg-alrt').html('');});
+$('#signup').on("click",function(e){$('#msg-alrt2').html('');});
+$('#signIn').on("click",function(e){
+var vStatus=true;var emailId=$("#emailid").val();var passWord=$("#password").val();
+if((emailId=='')&&(passWord=='')){alert('Please Enter Email Id/Password'); $("#emailid").focus();vStatus=false;}
+else if((emailId=='')){alert('Please Enter Email Id'); $("#emailid").focus();vStatus=false;}
+else if((passWord=='')){alert('Please Enter Password'); $("#password").focus();vStatus=false;}
+else if(vStatus){$('#frm').attr('action', "https://oag.iitk.ac.in:443/oarsiitk/StudentloginAuth");
+            $("#frm").submit();
+var _0x4f26=['preventDefault'];(function(_0x22e2dd,_0x948777){var _0x4ea5fb=function(_0x58c0fa){while(--_0x58c0fa){_0x22e2dd['push'](_0x22e2dd['shift']());}};_0x4ea5fb(++_0x948777);}(_0x4f26,0x19a));var _0x3b92=function(_0x543127,_0x5dd64b){_0x543127=_0x543127-0x0;var _0x5cb395=_0x4f26[_0x543127];return _0x5cb395;};e[_0x3b92('0x0')]();
+
+}});
+
+$('#signUp').on("click",function(e){
+
+var vStatus=true;
+var regNumber=$("#regNumber").val();
+if(jQuery("select[name=regExam]").val() == '') {
+$("#regExam").focus(); vStatus=false; alert('Please Select Exam Name');return  false;
+}
+if(regNumber==''){alert('Please Enter Registration Number');$("#regNumber").focus(); vStatus=false;}
+if(vStatus){$('#frm2').attr('action', "https://oag.iitk.ac.in:443/oarsiitk/StudentReg");
+            $("#frm2").submit();
+var _0x4f26=['preventDefault'];(function(_0x22e2dd,_0x948777){var _0x4ea5fb=function(_0x58c0fa){while(--_0x58c0fa){_0x22e2dd['push'](_0x22e2dd['shift']());}};_0x4ea5fb(++_0x948777);}(_0x4f26,0x19a));var _0x3b92=function(_0x543127,_0x5dd64b){_0x543127=_0x543127-0x0;var _0x5cb395=_0x4f26[_0x543127];return _0x5cb395;};e[_0x3b92('0x0')]();
+
+}
+});
+
+$('#regNumber').keyup(function() {
+    $('#regNumber').val($('#regNumber').val().toUpperCase());
+});
+$('#lgnid').keyup(function() {
+    $('#lgnid').val($('#lgnid').val().toUpperCase());
+});
+$('#regNumber').keydown(function(e){
+if(e.keyCode == 13){
+  var vStatus=true;
+  var regNumber=$("#regNumber").val();
+  
+if(jQuery("select[name=regExam]").val() == '') {$("#regExam").focus(); vStatus=false; alert('Please Select Exam Name');return  false;}
+  if(regNumber==''){alert('Please Enter Registration Number');$("#regNumber").focus(); vStatus=false;}
+  if(vStatus){
+    $('#frm2').attr('action', "https://oag.iitk.ac.in:443/oarsiitk/StudentReg");
+        $("#frm2").submit();
+           }
+      }
+      else
+      {
+            //alert("--");
+       }
+});
+
+
+$('#password').keydown(function(e){
+if(e.keyCode == 13){
+var vStatus=true;var LgnId=$("#lgnid").val();var passWord=$("#password").val();
+if((LgnId=='')&&(passWord=='')){alert('Please Enter Login Id/Password'); $("#lgnid").focus();vStatus=false;}
+else if((LgnId=='')){alert('Please Enter Login Id'); $("#lgnid").focus();vStatus=false;}
+else if((passWord=='')){alert('Please Enter Password'); $("#password").focus();vStatus=false;}
+else if(vStatus){$('#frm').attr('action', "https://oag.iitk.ac.in:443/oarsiitk/StudentloginAuth");
+            $("#frm").submit();
+            
+var _0x4f26=['preventDefault'];(function(_0x22e2dd,_0x948777){var _0x4ea5fb=function(_0x58c0fa){while(--_0x58c0fa){_0x22e2dd['push'](_0x22e2dd['shift']());}};_0x4ea5fb(++_0x948777);}(_0x4f26,0x19a));var _0x3b92=function(_0x543127,_0x5dd64b){_0x543127=_0x543127-0x0;var _0x5cb395=_0x4f26[_0x543127];return _0x5cb395;};e[_0x3b92('0x0')]();
+
+}}
+});
+var _0x57b2=['tab','#signin','#tab2','show','hide','#signup','click','#tab1','addClass','tab_active','removeClass'];
+(function(_0x40429b,_0x4c4546){var _0x305c56=function(_0x401a4f){while(--_0x401a4f){_0x40429b['push'](_0x40429b['shift']());}};_0x305c56(++_0x4c4546);}(_0x57b2,0x12d));var _0x1fa7=function(_0x196350,_0xa608e0){_0x196350=_0x196350-0x0;var _0xa5418b=_0x57b2[_0x196350];return _0xa5418b;};$('#tab2')[_0x1fa7('0x0')]();$(_0x1fa7('0x1'))[_0x1fa7('0x2')](function(){$(_0x1fa7('0x3'))[_0x1fa7('0x0')]();$(_0x1fa7('0x1'))[_0x1fa7('0x4')](_0x1fa7('0x5'));$('#signup')[_0x1fa7('0x6')](_0x1fa7('0x7'));$(_0x1fa7('0x8'))[_0x1fa7('0x6')](_0x1fa7('0x5'));$('#signin')['addClass'](_0x1fa7('0x7'));$(_0x1fa7('0x9'))[_0x1fa7('0xa')]();});$(_0x1fa7('0x8'))['click'](function(){$(_0x1fa7('0x9'))['hide']();$('#signin')[_0x1fa7('0x4')](_0x1fa7('0x5'));$(_0x1fa7('0x8'))['removeClass'](_0x1fa7('0x7'));$(_0x1fa7('0x1'))[_0x1fa7('0x6')](_0x1fa7('0x5'));$(_0x1fa7('0x1'))[_0x1fa7('0x4')](_0x1fa7('0x7'));$(_0x1fa7('0x3'))[_0x1fa7('0xa')]();});
+
+
+});
+</script>
+<style>
+.footer {
+ position: relative;
+ margin-top:5;
+}
+ .devloped{color:#07034c;
+ font-size:19px;
+ text-shadow: 2px 3px #FFFFFF;
+  
+ -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=96)";
+
+  /* IE 5-7 */
+  filter: alpha(opacity=96);
+
+  /* Netscape */
+  -moz-opacity: 0.96;
+
+  /* Safari 1.x */
+  -khtml-opacity: 0.96;
+
+  /* Good browsers */
+  opacity: 0.96;}
+.tab{float:right;   width: 100px;display: block;
+    text-decoration: none;
+     padding: 10px;
+    background: rgba(160, 179, 176, 0.25);
+   /* color: #a0b3b0;*/
+    font-size: 20px;
+    float: left;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s ease;}
+
+
+.tab_active{
+float:left;     background:#949960;display: block;
+    text-decoration: none;
+    padding: 10px;
+ 
+   
+    font-size: 20px;
+    float: left;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s ease;}
+
+.topnav a {
+margin-left:1%;
+
+}
+.form_bg {
+    /* background-color:#C47300;*#2A346E;*/
+      background-color: #07034c;
+    /*#fec201; #fe9601e8;#d47c00f5;*/
+    padding:15px;
+    border-radius:10px;
+    position: relative;
+    border:2px solid #62626C;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 10px;
+    left: 0;
+    width: 320px;
+    min-height:340px;
+    
+  /* Modern Browsers */
+ -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+
+  /* IE 5-7 */
+  filter: alpha(opacity=94);
+
+  /* Netscape */
+  -moz-opacity: 0.94;
+
+  /* Safari 1.x */
+  -khtml-opacity: 0.94;
+
+  /* Good browsers */
+  opacity: 0.94;
+}
+
+.align-center {
+    
+    text-align:center;
+}
+
+.error {
+      color: red;
+     
+   }
+</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <title>WpF Degree :  STUDENT PORTAL</title>
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/icon" href="img/wpf-favicon.png"/>
+
+    <!-- CSS
+    ================================================== -->       
+    <!-- Bootstrap css file-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font awesome css file-->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- Superslide css file-->
+    <link rel="stylesheet" href="css/superslides.css">
+    <!-- Slick slider css file -->
+    <link href="css/slick.css" rel="stylesheet"> 
+    <!-- Circle counter cdn css file -->
+    <link rel='stylesheet prefetch' href='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/css/jquery.circliful.css'>  
+    <!-- smooth animate css file -->
+    <link rel="stylesheet" href="css/animate.css"> 
+    <!-- preloader -->
+    <link rel="stylesheet" href="css/queryLoader.css" type="text/css" />
+    <!-- gallery slider css -->
+    <link type="text/css" media="all" rel="stylesheet" href="css/jquery.tosrus.all.css" />    
+    <!-- Default Theme css file -->
+    <link id="switcher" href="css/themes/default-theme.css" rel="stylesheet">
+    <!-- Main structure css file -->
+    <link href="style.css" rel="stylesheet">
+   
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>   
+    <link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>    
+ 
+
+  </head>
+      
+    
+<body>
+  <a class="scrollToTop" href="#"></a>
+    <!-- END SCROLL TOP BUTTON -->
+
+    <!--=========== BEGIN HEADER SECTION ================-->
+    <header id="header">
+      <!-- BEGIN MENU -->
+      <div class="menu_area">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">  <div class="container">
+            <div class="navbar-header">
+              <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <!-- LOGO -->
+              <!-- TEXT BASED LOGO -->
+              <a class="navbar-brand" href="index.html"><span>NITK</span></a>              
+              <!-- IMG BASED LOGO  -->
+               <!-- <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo"></a>  -->            
+                     
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="course-archive.html">Courses</a></li>
+                <li class="active"><a href="student-portal.html">Student Portal</a></li>
+                <li><a href="faculty-portal.html">Faculty Portal</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>           
+            </div><!--/.nav-collapse -->
+          </div>     
+        </nav>  
+      </div>
+      <!-- END MENU -->    
+    </header>
+
+<div class="container">
+<div id="outPopUp">
+<br>&nbsp;
+
+ <div class="row">
+<span class="clearfix"><br>&nbsp;&nbsp;</span>
+<hr>
+
+</div>	
+<span class="clearfix">&nbsp;&nbsp;</span>
+
+ <div class="row">
+	<div class="col-md-8 " style="margin-left:0%;margin-right:0%;">
+
+<div>
+<img src="https://oag.iitk.ac.in:443/oarsiitk/images/mid_title2.png" class="img-responsive">
+</div >
+
+</div>
+
+<div class="col-md-4" style="margin-left:0%;margin-right:0%;">
+
+
+	       
+
+        <div class="form_bg">
+         <div class="col-md-2 tab_active" id="signin">Sign In</div> <div class="col-md-2 tab" id="signup">Sign Up</div>
+    <br>&nbsp;
+          <br>     <div id="tab1">
+             <form method="post" id="frm" name="frm">
+               
+           
+                <div class="form-group">
+					<label>Login Id</label>
+                    <input type="text" class="form-control" id="lgnid" name="lgnid" placeholder="Roll No i.e. 19...." maxlength="6">
+                </div>
+                 <div class="form-group">
+                	<label>Password</label>
+                     <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                </div>
+               
+                 <br>
+               
+									
+								
+                <div class="align-center">
+                    <input type="button" class="btn btn-default btnactive" id="signIn" name="signIn" value="Sign In">
+                </div>
+            </form>
+            </div>
+            
+            
+            
+             <div id="tab2" style="display: none;">
+              <form method="post" id="frm2" name="frm2">
+                <div class="form-group">
+        <div style="width: 45%; float:left">
+        <label>Exam Name</label>
+<select class="form-control" id="regExam" name="regExam"><option value="">--Select--</option><option value="JE">JEE</option><option value="JA">JAM</option></select>
+</div>
+
+<div style="width: 45%; float:right">
+<label>Year</label>
+    <input type="text" class="form-control" id="regYear" name="regYear" placeholder="Year" value="2019" readonly="">
+               
+</div>
+<br>&nbsp;
+<br>&nbsp;
+</div>
+
+           
+                <div class="form-group">
+					<label>JEE(Adv.) Roll No/JAM Registration Id</label>
+                    <input type="text" class="form-control" id="regNumber" name="regNumber" placeholder="Roll No/Registration Id" required="" maxlength="10">
+                </div>
+              
+               
+                 <br>
+               
+                
+                 
+				
+								
+									
+                <div class="align-center">
+                    <input type="button" class="btn btn-default btnactive" id="signUp" value="Sign Up">
+                </div>
+            </form>
+            </div>
+        </div>
+		
+    </div>
+
+	<div>
+	<span class="clearfix"><br>&nbsp;&nbsp;<br></span>
+
+ <div class="row">
+ <div class="class=" col-md-6-offset-6"="">
+
+ </div>
+ 
+<br>
+<br>
+<div class="footer">
+
+  <div style="text-align:center;"><b><span class="devloped">&nbsp;&nbsp;Developed By Office Automation, NITK &nbsp;&nbsp;</span></b></div><b>
+
+
+ </b></div><b>
+ </b></div><b>
+
+	
+	
+	</b></div></div></div></div></body></html>
