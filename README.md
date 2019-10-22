@@ -9,11 +9,11 @@ If the user is a student, he must first register himself for the courses he is i
 This Online Attendance Management system provides transparency as it can be used anywhere, anytime. This system can be used effectively both in schools and universities.
 
 ## Tables
-### Faculty-info
-### Student-info
-### Courses
-### Faculty-attendance
-### Student-attendance
+#### Faculty-info
+#### Student-info
+#### Courses
+#### Faculty-attendance
+#### Student-attendance
 
 ## Frontend
 Web Application (using tools such as HTML,CSS, Bootstrap etc.)
