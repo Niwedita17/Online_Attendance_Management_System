@@ -1,0 +1,74 @@
+.body{
+    
+    font-family: 'Merriweather', serif;
+    overflow-x: hidden !important;
+    
+}
+#profile{
+    background: white;
+    width:100%;
+    height:auto;
+    color: white;
+    padding: 30px;
+    font-family: 'Merriweather', serif;
+    margin-top: 15px;
+
+}
+.bg1 {background-color: #313b3d}
+
+.wrap-input100 {
+    margin-top: 10px;
+    width: 100%;
+    position: relative;
+    border: 1px solid #e6e6e6;
+    border-radius: 13px;
+    padding: 10px 30px 9px 22px;
+    margin-bottom: 10px;
+  }
+
+  .rs1-wrap-input100 {
+    width: calc((100% - 30px) / 2);
+    float: left;
+    margin-left: 15px;
+  }
+
+  .label-input100 {
+    font-family: 'Merriweather', serif;    
+    font-size: 18px;
+    color: white;
+    line-height: 1.5;
+    text-transform: uppercase;
+    height: 20px;
+    border-radius: 15px;
+  }
+  
+  .input100 {
+    display: block;
+    width: 100%;
+    background: transparent;
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    color: white;
+    line-height: 1.5;
+    padding-right: 15px;
+  }
+
+  .validate-input {
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+    .rs1-wrap-input100 {
+      width: 100%;
+    }
+    .wrap-contact100 {
+        padding: 62px 15px 90px 15px;
+      }
+    
+      .wrap-input100 {
+        padding: 10px 10px 9px 10px;
+      }
+  }
+  
+
+  
