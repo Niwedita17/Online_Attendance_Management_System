@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Full-width input fields */
+input[type=text], input[type=password],input[type=email],input[type=tel],input[type=number] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus,input[type=email]:focus,input[type=tel]:focus,input[type=number]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+</style>
+<body>
+<div id="id01" class="modal">
+  <span onclick="goBack()" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content" action="faculty-login.html">
+    <div class="container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+      <label for="first-name"><b>First Name</b></label>
+      <input type="text" placeholder="Enter First Name" name="first-name" id="first-name" required>
+
+      <label for="last-name"><b>Last Name</b></label>
+      <input type="text" placeholder="Enter Last Name" name="last-name" id="last-name" required>
+
+      <label for="email"><b>Email</b></label>
+      <input type="email" placeholder="Enter Email" name="email" id="email" required>
+
+      <label for="phone"><b>Contact (10 digit number)</b></label>
+      <input type="number" placeholder="Enter Contact No." name="phone" id="phone" required>
+
+      <label for="b_tech"><b>B.Tech</b></label>
+      <input type="text" placeholder="Enter B.Tech qualification" name="b_tech" id="b_tech" required>
+
+      <label for="m_tech"><b>M.Tech</b></label>
+      <input type="text" placeholder="Enter M.Tech qualification" name="m_tech" id="m_tech" required>
+
+      <label for="phd"><b>PHD</b></label>
+      <input type="text" placeholder="Enter PHD qualification" name="phd" id="phd" required>
+
+      <label for="interet"><b>Area of Interest</b></label>
+      <input type="text" placeholder="Enter Area of Interest" name="interet" id="interet" required>
+
+      <label for="house_no"><b>House/Block number</b></label>
+      <input type="text" placeholder="Enter House/Block number" name="house_no" id="house_no" required>
+
+      <label for="street"><b>Street</b></label>
+      <input type="text" placeholder="Enter Street" name="street" id="street" required>
+
+      <label for="city"><b>City</b></label>
+      <input type="text" placeholder="Enter City" name="city" id="city" required>
+
+      <label for="state"><b>State</b></label>
+      <input type="text" placeholder="Enter State" name="state" id="state" required>
+
+      <label for="pincode"><b>Pincode</b></label>
+      <input type="number" placeholder="Enter Pincode" name="pincode" id="pincode" required>
+
+      <label for="password"><b>Set Password</b></label>
+      <input type="password" placeholder="Set Password" name="password" id="passwored" required>
+      
+      <p> On clicking Submit, your account will be created. You can then login to your account.</p>
+      <div class="clearfix">
+        <button type="button" onclick="goBack()" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    window.location.href = "faculty-login.html";
+  }
+}
+window.onload = function(){
+  document.getElementById('id01').style.display='block';
+}
+function goBack(){
+  window.location.href = "faculty-login.html";
+}
+</script>
+
+</body>
+</html>
