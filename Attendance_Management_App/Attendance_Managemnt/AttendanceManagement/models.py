@@ -8,6 +8,63 @@
 from django.db import models
 
 
+class CourseAttendance(models.Model):
+    sid = models.ForeignKey('StudentInfo', models.DO_NOTHING, db_column='sid', primary_key=True)
+    cid = models.ForeignKey('CourseInfo', models.DO_NOTHING, db_column='cid')
+    date = models.DateField(db_column='Date')  # Field name made lowercase.
+    attendance = models.CharField(max_length=3)
+    reason_for_absence = models.CharField(max_length=100, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'Course_Attendance'
+        unique_together = (('sid', 'cid'),)
+
+
+class CourseInfo(models.Model):
+    cid = models.CharField(primary_key=True, max_length=5)
+    cname = models.CharField(max_length=15)
+    no_of_classes = models.IntegerField()
+    course_plan = models.CharField(max_length=100)
+    fid = models.ForeignKey('FacultyInfo', models.DO_NOTHING, db_column='fid', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'Course_Info'
+
+
+class CourseRegistration(models.Model):
+    sid = models.ForeignKey('StudentInfo', models.DO_NOTHING, db_column='sid', primary_key=True)
+    cid = models.ForeignKey(CourseInfo, models.DO_NOTHING, db_column='cid')
+
+    class Meta:
+        managed = False
+        db_table = 'Course_Registration'
+        unique_together = (('sid', 'cid'),)
+
+
+class FacultyInfo(models.Model):
+    fid = models.CharField(primary_key=True, max_length=5)
+    f_fname = models.CharField(max_length=10)
+    f_lname = models.CharField(max_length=10)
+    email = models.CharField(max_length=20)
+    phone = models.BigIntegerField()
+    area_of_interest = models.CharField(max_length=30)
+    btech = models.CharField(max_length=20)
+    mtech = models.CharField(max_length=20)
+    phd = models.CharField(max_length=20)
+    house_no = models.CharField(max_length=10)
+    street = models.CharField(max_length=15)
+    city = models.CharField(max_length=20)
+    state = models.CharField(max_length=20)
+    pincode = models.IntegerField()
+    password = models.CharField(max_length=10)
+
+    class Meta:
+        managed = False
+        db_table = 'Faculty_Info'
+
+
 class StudentInfo(models.Model):
     sid = models.CharField(primary_key=True, max_length=5)
     s_fname = models.CharField(max_length=10)
