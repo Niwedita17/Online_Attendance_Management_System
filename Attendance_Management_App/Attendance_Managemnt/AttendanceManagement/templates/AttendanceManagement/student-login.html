@@ -1,0 +1,170 @@
+{% extends 'AttendanceManagement/base.html' %}
+{% load staticfiles %}
+
+{% block title_content %}
+    <title>Student Login</title>
+{% endblock %}
+
+{% block script_content %}
+<script>
+  function redirect(){
+    window.location.href = "signup_student.html";
+  }
+</script>
+{% endblock %}
+
+{% block style_content %}
+<style>
+.footer {
+ position: relative;
+ margin-top:5;
+}
+ .devloped{color:#07034c;
+ font-size:19px;
+ text-shadow: 2px 3px #FFFFFF;
+
+ -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=96)";
+
+  /* IE 5-7 */
+  filter: alpha(opacity=96);
+
+  /* Netscape */
+  -moz-opacity: 0.96;
+
+  /* Safari 1.x */
+  -khtml-opacity: 0.96;
+
+  /* Good browsers */
+  opacity: 0.96;}
+.tab{float:right;   width: 100px;display: block;
+    text-decoration: none;
+     padding: 10px;
+    background: rgba(160, 179, 176, 0.25);
+   /* color: #a0b3b0;*/
+    font-size: 20px;
+    float: left;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s ease;}
+
+
+.tab_active{
+float:left;     background:#949960;display: block;
+    text-decoration: none;
+    padding: 10px;
+
+
+    font-size: 20px;
+    float: left;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s ease;}
+
+.topnav a {
+margin-left:1%;
+
+}
+.form_bg {
+    /* background-color:#C47300;*#2A346E;*/
+      background-color: #07034c;
+    /*#fec201; #fe9601e8;#d47c00f5;*/
+    padding:15px;
+    border-radius:10px;
+    position: relative;
+    border:2px solid #62626C;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 10px;
+    left: 0;
+    width: 320px;
+    min-height:340px;
+
+  /* Modern Browsers */
+ -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+
+  /* IE 5-7 */
+  filter: alpha(opacity=94);
+
+  /* Netscape */
+  -moz-opacity: 0.94;
+
+  /* Safari 1.x */
+  -khtml-opacity: 0.94;
+
+  /* Good browsers */
+  opacity: 0.94;
+}
+
+.align-center {
+
+    text-align:center;
+}
+
+.error {
+      color: red;
+
+   }
+</style>
+{% endblock %}
+
+{% block main_content %}
+<div style="background-image: url({% static 'AttendanceManagement/img/nitk.jpg' %})">
+<div class="container">
+<div id="outPopUp">
+<br>&nbsp;
+
+ <div class="row">
+<span class="clearfix"><br>&nbsp;&nbsp;</span>
+<hr>
+
+</div>
+<span class="clearfix">&nbsp;&nbsp;</span>
+
+ <div class="row">
+	<div class="col-md-8 " style="margin-left:0%;margin-right:0%;">
+
+<div>
+<img src="{% static 'AttendanceManagement/img/nitk_logo.png' %}" class="img-responsive" vspace="80" width="300" height="300" style="margin-left:10%;margin-right:0; ">
+</div >
+
+</div>
+<br>
+<div class="col-md-4" style="margin-left:0%;margin-right:0%;margin-top:7%;">
+          <br>
+            <div id="tab1">
+
+                <form class="site-form" action="{% url 'accounts:login' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Login">
+    </form>
+               <div class="form-group">
+                   <label>Student Login Id</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Roll No i.e.  19CO101" maxlength="7" pattern="[0-9]{2}[A-Z]{2}[0-9]{3}" required>
+                </div>
+                 <div class="form-group">
+                	<label>Password</label>
+                     <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                </div>
+
+                 <br>
+                 <div class="align-center">
+                    <button type="submit" class="btn btn-default btnactive">SignIn</button>
+                    <input type="button" class="btn btn-default btnactive" id="signUp" name="signUp" value="Sign Up" onclick="redirect()">
+
+                </div>
+
+            </form>
+            </div>
+
+<div class="footer">
+
+  <div style="text-align:center;"><b><span class="devloped">&nbsp;&nbsp;Developed By Office Automation, NITK &nbsp;&nbsp;</span></b></div><b>
+  </b></div><b>
+ </b></div><b>
+ </b></div></div></div>
+</div>
+{% endblock %}

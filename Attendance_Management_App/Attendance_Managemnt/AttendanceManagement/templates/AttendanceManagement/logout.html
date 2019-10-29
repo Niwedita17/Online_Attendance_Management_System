@@ -1,0 +1,9 @@
+{% extends 'AttendanceManagement/base.html' %}
+ 
+{% block title_content %}See you!{% endblock %}
+ 
+{% block main_content %}
+  <h2>Logged out</h2>
+  <p>You have been successfully logged out.</p>
+  <p><a href="{% url 'login' %}" class="btn btn-primary">Log in</a> again.</p>
+{% endblock %}
