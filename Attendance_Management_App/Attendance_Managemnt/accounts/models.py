@@ -5,6 +5,7 @@
 #   * Make sure each ForeignKey has `on_delete` set to the desired behavior.
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
+from django.core.validators import RegexValidator, MaxValueValidator, MinValueValidator
 from django.db import models
 
 
@@ -44,7 +45,7 @@ class CourseRegistration(models.Model):
 
 
 class FacultyInfo(models.Model):
-    fid = models.CharField(primary_key=True, max_length=5)
+    fid = models.CharField(primary_key=True, max_length=8, )
     f_fname = models.CharField(max_length=10)
     f_lname = models.CharField(max_length=10)
     email = models.CharField(max_length=20)
@@ -66,18 +67,23 @@ class FacultyInfo(models.Model):
 
 
 class StudentInfo(models.Model):
-    sid = models.CharField(primary_key=True, max_length=5)
-    s_fname = models.CharField(max_length=10)
-    s_lname = models.CharField(max_length=10)
-    email = models.CharField(max_length=15)
-    phone = models.BigIntegerField()
+    sid = models.CharField(primary_key=True, max_length=7, validators=[
+        RegexValidator(
+            regex='^[0-9]{2}[A-Z]{2}[0-9]{3}$',
+            message='ID should be of form e.g 19CO101',
+            code='invalid_studentID'
+        ),
+    ])
+    s_fname = models.CharField(max_length=15)
+    s_lname = models.CharField(max_length=15)
+    email = models.EmailField(max_length=20)
+    phone = models.CharField(max_length=10, validators=[RegexValidator(regex='^[0-9]{10}$'), ])
     degree = models.CharField(max_length=20)
     house_no = models.CharField(max_length=10)
     street = models.CharField(max_length=15)
     city = models.CharField(max_length=20)
     state = models.CharField(max_length=20)
-    pincode = models.IntegerField()
-    password = models.CharField(max_length=10)
+    pincode = models.CharField(max_length=6, validators=[RegexValidator(regex='^[0-9]{6}$'), ])
 
     class Meta:
         managed = False

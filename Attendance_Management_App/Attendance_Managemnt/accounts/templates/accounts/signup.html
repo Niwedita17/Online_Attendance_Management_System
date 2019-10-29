@@ -1,22 +1,47 @@
 {% extends 'AttendanceManagement/base.html' %}
 
+{% block style_content %}
+<style>
+p, h2{
+  color: white;
+}
+.align-center {
+
+    text-align:center;
+}
+#p1{
+color: black;
+}
+</style>
+
+{% endblock %}
+
 {% block main_content %}
     <br><br><br><br><br>
-    <h2>Sign up</h2>
+<div class="align-center">
+  <h2 >Sign up</h2>
   <form method="post">
     {% csrf_token %}
     {% for field in form %}
       <p>
         {{ field.label_tag }}<br>
+        <p id="p1">
         {{ field }}
+        </p>
         {% if field.help_text %}
-          <small style="color: grey">{{ field.help_text }}</small>
+          <small style="color: red">{{ field.help_text }}</small>
         {% endif %}
         {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
+          <p>{{ error }}
         {% endfor %}
       </p>
     {% endfor %}
-    <button type="submit">Sign up</button>
+    {% if error_message %}
+    <p> {{error_message }}</p>
+    {% endif %}
+    <br>
+    <button type="submit" class="btn btn-default btnactive">Sign up</button>
   </form>
+  <br><br>
+</div>
 {% endblock %}

@@ -11,10 +11,12 @@
     color: white;
     padding: 30px;
     font-family: 'Merriweather', serif;
+    font-weight: bold;
     margin-top: 15px;
 
 }
-.bg1 {background-color: #313b3d}
+.bg1 {background-color: #313b3d;}
+.bg2 {background: white;}
 
 .wrap-input100 {
     margin-top: 10px;
@@ -35,7 +37,7 @@
   .label-input100 {
     font-family: 'Merriweather', serif;    
     font-size: 18px;
-    color: white;
+    color: #313b3d;
     line-height: 1.5;
     text-transform: uppercase;
     height: 20px;

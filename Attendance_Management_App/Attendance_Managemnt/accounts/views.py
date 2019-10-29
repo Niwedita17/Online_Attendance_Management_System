@@ -1,10 +1,13 @@
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 
 # Create your views here.
+from django.urls import reverse
+
 from .models import StudentInfo
 from .forms import StudentSignupForm
 
@@ -14,25 +17,63 @@ def index(request):
 
 
 def signup_view(request):
+    # if this is a POST request we need to process the form data
+    template = 'accounts/signup.html'
+
     if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
         form = StudentSignupForm(request.POST)
+        # check whether it's valid:
         if form.is_valid():
-            form2 = form.save(commit=False)
-            req_user = request.user
-            form2.password = make_password(form.cleaned_data['password'])
-            form2.save()
-            user_instance = StudentInfo.objects.create(user=form2)
-            user_instance.save()
-                #user = form.save()
-            # log the user in
-            # username = form.cleaned_data.get('sid')
-            # raw_password = form.cleaned_data.get('password')
-            # user = authenticate(username=username, password=raw_password)
-            #login(request, user)
-            return redirect('AttendanceManagement:index')
-    else:
-        form = StudentSignupForm()
-    return render(request, 'accounts/signup.html', {'form': form})
+            if User.objects.filter(username=form.cleaned_data['sid']).exists():
+                print("1")
+                return render(request, template, {
+                    'form': form,
+                    'error_message': 'Username already exists.'
+                })
+            elif User.objects.filter(email=form.cleaned_data['email']).exists():
+                print("2")
+                return render(request, template, {
+                    'form': form,
+                    'error_message': 'Email already exists.'
+                })
+            elif form.cleaned_data['password'] != form.cleaned_data['password2']:
+                print("3")
+                return render(request, template, {
+                    'form': form,
+                    'error_message': 'Passwords do not match.'
+                })
+            else:
+                print("4")
+                # save the table info to the database
+                form.save()
+                # Create the user:
+                user = User.objects.create_user(
+                    form.cleaned_data['sid'],
+                    form.cleaned_data['email'],
+                    form.cleaned_data['password']
+                )
+                user.s_fname = form.cleaned_data['s_fname']
+                user.s_lname = form.cleaned_data['s_lname']
+                user.phone = form.cleaned_data['phone']
+                user.degree = form.cleaned_data['degree']
+                user.house_no = form.cleaned_data['house_no']
+                user.street = form.cleaned_data['street']
+                user.city = form.cleaned_data['city']
+                user.state = form.cleaned_data['state']
+                user.pincode = form.cleaned_data['pincode']
+                user.save()
+
+                # Login the user
+                login(request, user)
+
+                # redirect to accounts page:
+                return redirect('AttendanceManagement:index')
+        # No post data available, let's just show the page.
+        else:
+            print("5")
+            form = StudentSignupForm()
+        return render(request, template, {'form': form})
 
 
 def login_view(request):
@@ -41,8 +82,10 @@ def login_view(request):
         if form.is_valid():
             # log the user in
             user = form.get_user()
+            # get user id
+            user_id = user.username
             login(request, user)
-            return redirect('AttendanceManagement:index')
+            return HttpResponseRedirect(reverse('AttendanceManagement:student', args=(user_id,)))
     else:
         form = AuthenticationForm()
     return render(request, 'accounts/student-login.html', {'form': form})
@@ -52,5 +95,6 @@ def logout_view(request):
     if request.method == 'POST':
         logout(request)
         return redirect('accounts:login')
-        #return render(request, 'accounts/logout.html')
-        #return HttpResponseRedirect('/login/')
+    else:
+        return redirect('AttendanceManagement:index')
+
