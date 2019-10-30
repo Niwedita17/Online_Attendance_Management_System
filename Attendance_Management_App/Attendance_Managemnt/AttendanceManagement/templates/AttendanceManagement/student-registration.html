@@ -1,0 +1,63 @@
+{% extends 'AttendanceManagement/base.html' %}
+
+{% block style_content %}
+    <style >
+      .tab button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+</style>
+{% endblock %}
+{% block main_content %}
+    
+    <!--=========== BEGIN COURSE BANNER SECTION ================-->
+    <section id="courseArchive">
+      <div class="container">
+        <div class="row">
+          <!-- start course content -->
+          <div >
+            <div class="courseArchive_content">
+              <div class="row">
+                <!-- start single course -->
+                {% for all_courses not in course_instance %}
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="single_course wow fadeInUp">
+                    <div class="singCourse_imgarea">
+                      <!--img src="img/course-1.jpg" /-->
+                      <div class="mask">                         
+                        <a href="course-single.html" class="course_more">View Course</a>
+                      </div>
+                    </div>
+                    <div class="singCourse_content">
+                    <h3 class="singCourse_title"><a href="course-single.html">{{all_courses.cname}}</a></h3>
+                    
+                    <!--p>when an unknown printer took a galley of type and scrambled it to make a type specimen book</p-->
+                    </div>
+                    <div class="singCourse_author">
+                      <!--img src="img/author.jpg" alt="img"-->
+                      <p>{{faculty_instance.f_fname}}{{faculty_instance.f_lname}}</p>
+                    </div>
+                    <div align="right"><button class="tablinks" onclick="openCity(event, 'Tokyo')">Register</button></div>
+                  </div>
+                </div>
+                <!-- End single course -->
+              </div>
+              <!-- start previous & next button -->
+              <div class="single_blog_prevnext">
+                <a href="#" class="prev_post wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft;"><i class="fa fa-angle-left"></i>Previous</a>
+                <a href="#" class="next_post wow fadeInRight animated" style="visibility: visible; animation-name: fadeInRight;">Next<i class="fa fa-angle-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- End course content -->
+          
+          <!-- start course archive sidebar -->
+        </div>
+      </div>
+    </section>
+    <!--=========== END COURSE BANNER SECTION ================-->
+{% endblock %}

@@ -5,30 +5,29 @@
 #   * Make sure each ForeignKey has `on_delete` set to the desired behavior.
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
-from django.contrib.auth.models import AbstractUser, User
-from django.core.validators import RegexValidator, MaxValueValidator, MinValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator, RegexValidator
 from django.db import models
 
 
 class CourseAttendance(models.Model):
-    sid = models.ForeignKey('StudentInfo', models.DO_NOTHING, db_column='sid', primary_key=True)
+    ca_id = models.AutoField(primary_key=True)
+    sid = models.ForeignKey('StudentInfo', models.DO_NOTHING, db_column='sid')
     cid = models.ForeignKey('CourseInfo', models.DO_NOTHING, db_column='cid')
     date = models.DateField(db_column='Date')  # Field name made lowercase.
     attendance = models.CharField(max_length=3)
-    reason_for_absence = models.CharField(max_length=100, blank=True, null=True)
+    reason_for_absence = models.CharField(max_length=100)
 
     class Meta:
         managed = False
         db_table = 'Course_Attendance'
-        unique_together = (('sid', 'cid'),)
 
 
 class CourseInfo(models.Model):
     cid = models.CharField(primary_key=True, max_length=5)
     cname = models.CharField(max_length=15)
-    no_of_classes = models.IntegerField()
+    no_of_classes = models.IntegerField(validators=[MaxValueValidator(40), MinValueValidator(1)])
     course_plan = models.CharField(max_length=100)
-    fid = models.ForeignKey('FacultyInfo', models.DO_NOTHING, db_column='fid', blank=True, null=True)
+    fid = models.ForeignKey('FacultyInfo', models.DO_NOTHING, db_column='fid')
 
     class Meta:
         managed = False
@@ -36,13 +35,13 @@ class CourseInfo(models.Model):
 
 
 class CourseRegistration(models.Model):
-    sid = models.ForeignKey('StudentInfo', models.DO_NOTHING, db_column='sid', primary_key=True)
+    cr_id = models.AutoField(primary_key=True)
+    sid = models.ForeignKey('StudentInfo', models.DO_NOTHING, db_column='sid')
     cid = models.ForeignKey(CourseInfo, models.DO_NOTHING, db_column='cid')
 
     class Meta:
         managed = False
         db_table = 'Course_Registration'
-        unique_together = (('sid', 'cid'),)
 
 
 class FacultyInfo(models.Model):

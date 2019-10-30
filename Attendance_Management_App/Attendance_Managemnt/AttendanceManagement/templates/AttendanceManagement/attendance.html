@@ -1,0 +1,70 @@
+{% extends 'AttendanceManagement/base.html' %}
+
+{% block style_content %}
+<style >
+  .tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+</style>
+{% endblock %}
+{% block main_content %}
+
+<section id="imgBanner">
+      <h2>{{course_instance.cname}}</h2>
+      <h3>{{faculty_instance.f_fname}}{{faculty_instance.f_lname}}</h3>
+    </section>
+
+    <section id="student-attendance">
+      <div class="container">
+        <div class="row">
+            <table style="width:100%">
+            <tr> 
+                <th align="center" height="50px" style="overflow: hidden;
+                border: 1px solid #ccc;
+                background-color: #f1f1f1;">Date</th> 
+                <th align="center" style="overflow: hidden;
+                border: 1px solid #ccc;
+                background-color: #f1f1f1;">Attendance</th>
+                <th align="center" style="overflow: hidden;
+                border: 1px solid #ccc;
+                background-color: #f1f1f1;">Reason for Absence</th> 
+            </tr>
+                {% for courses in courses_registered %}
+            <tr>
+                <td align="center" style="overflow: hidden;
+          border: 1px solid #ccc;
+          background-color: #f1f1f1;">{{courses.date}}</td>
+                <td align="center" style="overflow: hidden;
+          border: 1px solid #ccc;
+          background-color: #f1f1f1;">{{course.attendance}}</td>
+                <td align="center" style="overflow: hidden;
+                      border: 1px solid #ccc;
+                      background-color: #f1f1f1;">
+                      <textarea style="width: 1000px">
+                        {{courses.reason_for_absence}}
+                        </textarea>
+                     <form method="post" action="{% url 'AttendanceManagement:reason_for_absence' courses.sid courses.cid courses.date" %}>
+                        {% csrf_token %}
+                          {% if request.GET.next %}
+                            <input type="hidden" name="next" value="{{ request.GET.next }}">
+                        {% endif %}
+                         <button class="tablinks">
+                            Submit
+                        </button>
+                    </form>
+<!--                      <button class="tablinks" onclick="redirect()">Submit</button>-->
+                </td> 
+            </tr>
+                {% endfor %}
+            </table> 
+        </div>
+
+        </div>
+    </section>
+	{% endblock %}

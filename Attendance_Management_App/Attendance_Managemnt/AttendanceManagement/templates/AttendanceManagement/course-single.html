@@ -1,0 +1,41 @@
+<!{% extends 'AttendanceManagement/base.html' %}
+{% block main_content %}
+    <!--=========== BEGIN COURSE BANNER SECTION ================-->
+    <section id="imgBanner">
+      <h2>{{course_instance.cid}} {{course_instance.cname}}</h2>
+    </section>
+    <!--=========== END COURSE BANNER SECTION ================-->
+
+    
+    <!--=========== BEGIN COURSE BANNER SECTION ================-->
+    <section id="courseArchive">
+      <div class="container">
+        <div class="row">
+          <!-- start course content -->
+          <div>
+            <div class="courseArchive_content">              
+             <div class="singlecourse_ferimg_area">
+      
+                <div class="singlecourse_bottom">
+                  <h2>Course Instructor :</h2>
+                  <h4></h4>
+                  <span class="singlecourse_author">
+                    <!--img alt="img" src="img/author.jpg"-->
+                    {{faculty_instance.f_fname}}{{faculty_instance.f_lname}}
+                  </span>
+                </div>
+             </div>
+             <div class="single_course_content">
+               <h2>About The Course</h2>
+               {{course_instance.course_plan}}
+             </div>
+            </div>
+          </div>
+          <!-- End course content -->
+          </div>
+          <!-- start course archive sidebar -->
+        </div>
+      </div>
+    </section>
+    <!--=========== END COURSE BANNER SECTION ================-->
+{% endblock %}

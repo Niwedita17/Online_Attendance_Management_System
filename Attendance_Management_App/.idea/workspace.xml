@@ -19,17 +19,19 @@
   <component name="ProjectId" id="1SmsP5wWUjKt88OF0hjMFsEN1T9" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Attendance_Managemnt/AttendanceManagement/templates/AttendanceManagement" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Attendance_Managemnt/accounts/templates/accounts" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Attendance_Managemnt/AttendanceManagement/templates/AttendanceManagement" />
       <recent name="$PROJECT_DIR$/Attendance_Managemnt/AttendanceManagement/templates" />
       <recent name="$PROJECT_DIR$/Attendance_Managemnt/AttendanceManagement/registration" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Attendance_Managemnt/AttendanceManagement/templates/AttendanceManagement" />
+      <recent name="$PROJECT_DIR$/Attendance_Managemnt/AttendanceManagement" />
+      <recent name="$PROJECT_DIR$/Attendance_Managemnt/accounts/templates/accounts" />
     </key>
   </component>
   <component name="RunDashboard">

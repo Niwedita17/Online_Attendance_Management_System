@@ -36,8 +36,3 @@ class FacultySignupForm(forms.ModelForm):
         model = models.FacultyInfo
         fields = ('fid', 'f_fname', 'f_lname', 'email', 'phone', 'area_of_interest', 'btech', 'mtech','phd', 'house_no', 'street', 'city', 'state', 'pincode', 'password', 'password2' )
 
-
-class AddNewCourseForm(forms.ModelForm):
-    class Meta:
-        model = models.CourseInfo
-        fields = ('cid', 'cname', 'no_of_classes', 'course_plan', 'fid')
