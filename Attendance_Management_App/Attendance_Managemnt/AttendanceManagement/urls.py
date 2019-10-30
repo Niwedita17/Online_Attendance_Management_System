@@ -8,5 +8,6 @@ urlpatterns = [
     url(r'^$', user_views.index, name='index'),
     #127.0.0.1/attendance/
     url(r'^student/(?P<sid>[0-9]{2}[A-Z]{2}[0-9]{3})/$', user_views.student_profile, name="student"),
+    url(r'^faculty/(?P<fid>F[0-9]{2}[A-Z]{2}[0-9]{3})/$', user_views.faculty_profile, name="faculty"),
 
 ]

@@ -5,7 +5,9 @@ app_name = 'accounts'
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^signup/$', views.signup_view, name='signup'),
-    url(r'^login/$', views.login_view, name='login'),
+    url(r'^signupStudent/$', views.signup_view_student, name='signupStudent'),
+    url(r'^loginStudent/$', views.login_view_student, name='loginStudent'),
     url(r'^logout/$', views.logout_view, name='logout'),
+    url(r'^signupFaculty/$', views.signup_view_faculty, name='signupFaculty'),
+    url(r'^loginFaculty/$', views.login_view_faculty, name='loginFaculty'),
 ]

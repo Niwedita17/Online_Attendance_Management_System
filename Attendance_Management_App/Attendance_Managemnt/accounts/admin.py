@@ -13,7 +13,13 @@ class StudentAdmin(admin.ModelAdmin):
     search_fields = ('sid', 's_fname')
 
 
-admin.site.register(FacultyInfo)
+@admin.register(FacultyInfo)
+class FacultyAdmin(admin.ModelAdmin):
+    list_display = ('fid','f_fname', 'f_lname', 'email', 'phone', 'area_of_interest','btech','mtech','phd', 'house_no', 'street', 'city', 'state', 'pincode')
+    ordering = ('fid',)
+    search_fields = ('fid', 'f_fname')
+
+
 admin.site.register(CourseInfo)
 admin.site.register(CourseRegistration)
 admin.site.register(CourseAttendance)

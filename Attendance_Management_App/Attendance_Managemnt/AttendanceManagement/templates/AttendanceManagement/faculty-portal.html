@@ -1,0 +1,153 @@
+{% extends 'AttendanceManagement/base.html' %}
+
+{% block style_content %}
+<style>
+.body{
+
+    font-family: 'Merriweather', serif;
+    overflow-x: hidden !important;
+
+}
+#profile{
+    background:  #313b3d;;
+    width:100%;
+    height:auto;
+    color: white;
+    padding: 30px;
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+    margin-top: 15px;
+
+}
+.bg1 {background-color: #313b3d;}
+.bg2 {background: white;}
+.bg3 {background-color: #D3D3D3;}
+
+.wrap-input100 {
+    margin-top: 10px;
+    width: 100%;
+    position: relative;
+    border: 1px solid #e6e6e6;
+    border-radius: 13px;
+    padding: 10px 30px 9px 22px;
+    margin-bottom: 10px;
+  }
+
+  .rs1-wrap-input100 {
+    width: calc((100% - 30px) / 2);
+    float: left;
+    margin-left: 15px;
+  }
+
+  .label-input100 {
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+    color: #313b3d;
+    line-height: 1.5;
+    text-transform: uppercase;
+    height: 20px;
+    border-radius: 15px;
+  }
+
+  .input100 {
+    display: block;
+    width: 100%;
+    background: transparent;
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    color:  #313b3d;
+    line-height: 1.5;
+    padding-right: 15px;
+  }
+
+  .validate-input {
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+    .rs1-wrap-input100 {
+      width: 100%;
+    }
+    .wrap-contact100 {
+        padding: 62px 15px 90px 15px;
+      }
+
+      .wrap-input100 {
+        padding: 10px 10px 9px 10px;
+      }
+  }
+
+
+
+</style>
+{% endblock %}
+{% block main_content %}
+</header>
+    <section id="imgBanner">
+      <h2>{{faculty_instance.f_fname}} {{faculty_instance.f_lname}}</h2>
+    </section>
+
+    <section id="profile">
+      <form>
+       <div class="wrap-input100 validate-input rs1-wrap-input100 bg2">
+					<span class="label-input100">FACULTY ID</span>
+					<label class="input100" type="text" name="fid" >{{ faculty_instance.fid }}</label>
+				</div>
+                <div class="wrap-input100 validate-input rs1-wrap-input100 bg2">
+					<span class="label-input100">EMAIL</span>
+					<label class="input100" type="text" name="email" >{{ faculty_instance.email }}</label>
+				</div>
+                <div class="wrap-input100 validate-input rs1-wrap-input100 bg2">
+					<span class="label-input100">PHONE</span>
+					<label class="input100" type="text" name="phone" >{{ faculty_instance.phone }}</label>
+				</div>
+                <div class="wrap-input100 validate-input rs1-wrap-input100 bg2">
+					<span class="label-input100">AREA OF INTEREST</span>
+					<label class="input100" type="text" name="area_of_interest" >{{ faculty_instance.area_of_interest }}</label>
+				</div>
+        <div class="wrap-input100 validate-input rs1-wrap-input100 bg2">
+					<span class="label-input100">B.TECH</span>
+					<label class="input100" type="text" name="btech" >{{ faculty_instance.btech }}</label>
+				</div>
+        <div class="wrap-input100 validate-input rs1-wrap-input100 bg2">
+					<span class="label-input100">M.TECH</span>
+					<label class="input100" type="text" name="mtech" >{{ faculty_instance.mtech }}</label>
+				</div>
+        <div class="wrap-input100 validate-input rs1-wrap-input100 bg2">
+					<span class="label-input100">PHD</span>
+					<label class="input100" type="text" name="phd" >{{ faculty_instance.phd }}</label>
+				</div>
+                <div class="wrap-input100 validate-input rs1-wrap-input100 bg2">
+					<span class="label-input100">HOUSE/BLOCK NUMBER</span>
+					<label class="input100" type="text" name="house_no" >{{ faculty_instance.house_no }}</label>
+				</div>
+                <div class="wrap-input100 validate-input rs1-wrap-input100 bg2">
+					<span class="label-input100">STREET</span>
+					<label class="input100" type="text" name="street" >{{ faculty_instance.street }}</label>
+				</div>
+                <div class="wrap-input100 validate-input rs1-wrap-input100 bg2">
+					<span class="label-input100">CITY</span>
+					<label class="input100" type="text" name="city" >{{ faculty_instance.city }}</label>
+				</div>
+                <div class="wrap-input100 validate-input rs1-wrap-input100 bg2">
+					<span class="label-input100">STATE</span>
+					<label class="input100" type="text" name="state" >{{ faculty_instance.state }}</label>
+				</div>
+                <div class="wrap-input100 validate-input rs1-wrap-input100 bg2">
+					<span class="label-input100">PINCODE</span>
+					<label class="input100" type="text" name="pincode" >{{ faculty_instance.pincode }}</label>
+				</div>
+				<a href="faculty-registration.html">
+				<div class="wrap-input100 validate-input rs1-wrap-input100 bg3">
+					<span class="label-input100">Add Existing Courses</span>
+					<label class="input100" type="text" name="name" >New courses</label>
+				</div></a>
+				<a href="faculty-registration.html">
+				<div class="wrap-input100 validate-input rs1-wrap-input100 bg3">
+					<span class="label-input100">Add New Course</span>
+					<label class="input100" type="text" name="name" >New courses</label>
+				</div></a>
+
+            </form>
+    </section>
+{% endblock %}

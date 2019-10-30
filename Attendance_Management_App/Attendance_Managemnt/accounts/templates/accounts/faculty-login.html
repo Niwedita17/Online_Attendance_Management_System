@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block title_content %}
-    <title>Student Login</title>
+    <title>Faculty Login</title>
 {% endblock %}
 
 {% block script_content %}
@@ -136,11 +136,11 @@ margin-left:1%;
           <br>
             <div id="tab1">
 
-                <form class="site-form" action="{% url 'accounts:loginStudent' %}" method="post">
+                <form class="site-form" action="{% url 'accounts:loginFaculty' %}" method="post">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label>Student Login Id</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Roll No i.e.  19CO101" maxlength="7"  required>
+                        <label>Faculty Login Id</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="ID No i.e. F19CO101" maxlength="8"  required>
                     </div>
                     <div class="form-group">
                 	    <label>Password</label>
@@ -159,7 +159,7 @@ margin-left:1%;
                 </form>
                 <br>
                 <div class="align-center">
-                <form class="signup-link" action="{% url 'accounts:signupStudent' %}"  method="post">
+                <form class="signup-link" action="{% url 'accounts:signupFaculty' %}"  method="post">
                           {% csrf_token %}
                           <button class="btn btn-default btnactive">SignUp</button>
                       </form>

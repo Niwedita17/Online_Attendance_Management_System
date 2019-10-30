@@ -22,3 +22,17 @@ class StudentSignupForm(forms.ModelForm):
         fields = ('sid', 's_fname', 's_lname', 'email', 'phone', 'degree', 'house_no', 'street', 'city', 'state', 'pincode', 'password', 'password2' )
 
 
+
+class FacultySignupForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput(
+        attrs={
+            "placeholder": "Password"
+        }))
+    password2 = forms.CharField(widget=forms.PasswordInput(
+        attrs={
+            "placeholder": "Password"
+        }))
+
+    class Meta:
+        model = models.FacultyInfo
+        fields = ('fid', 'f_fname', 'f_lname', 'email', 'phone', 'area_of_interest', 'btech', 'mtech','phd', 'house_no', 'street', 'city', 'state', 'pincode', 'password', 'password2' )
