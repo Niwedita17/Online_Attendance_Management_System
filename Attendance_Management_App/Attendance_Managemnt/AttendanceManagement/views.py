@@ -16,21 +16,35 @@ def index(request):
     return render(request, 'AttendanceManagement/index.html')
 
 
+def studentprofile(request,sid):
+    student_instance = StudentInfo.objects.get(sid=sid)
+    return render(request, 'AttendanceManagement/student-portal.html',
+                  {"student_instance": student_instance})
+
+
 def student_profile(request, sid):
     print("1")
     student_instance = get_object_or_404(StudentInfo, pk=sid)
     print("2")
-    courses = get_list_or_404(CourseAttendance, sid=sid)
-    final_list = []
-    course_list = []
-    for c in courses:
-        if c.cid not in final_list:
-            final_list.append(c.cid)
-            course_list.append(c)
-    for f in final_list:
-         print(f)
-    return render(request, 'AttendanceManagement/student-portal.html',
-                  {"student_instance": student_instance, "courses":course_list})
+    #courses = get_list_or_404(CourseAttendance, sid=sid)
+
+    try:
+        courses = get_list_or_404(CourseAttendance, sid=sid)
+
+        print(len(courses))
+        final_list = []
+        course_list = []
+        for c in courses:
+            if c.cid not in final_list:
+                final_list.append(c.cid)
+                course_list.append(c)
+        for f in final_list:
+             print(f)
+        return render(request, 'AttendanceManagement/student-portal.html',
+                      {"student_instance": student_instance, "courses":final_list})
+    except:
+        return render(request, 'AttendanceManagement/student-portal.html',
+                      {"student_instance": student_instance, "courses.cid":'No courses registered'})
 
 
 def view_attendance(request):
@@ -67,21 +81,30 @@ def give_attendance(request):
         return render(request, 'AttendanceManagement/faculty-portal.html')
 
 
+def facultyprofile(request,fid):
+    faculty_instance = FacultyInfo.objects.get(fid=fid)
+    return render(request, 'AttendanceManagement/faculty-portal.html',
+                  {"faculty_instance": faculty_instance,"give_attendance":False})
+
+
 def faculty_profile(request, fid):
     faculty_instance = get_object_or_404(FacultyInfo, pk=fid)
     print(faculty_instance.f_fname)
-    courses_list = get_list_or_404(CourseInfo,fid=fid)
-    final_list = []
-    course_list = []
-    for c in courses_list:
-        if c.cid not in final_list:
-            final_list.append(c.cid)
-            course_list.append(c)
-    for f in final_list:
-        print(f)
-    return render(request, 'AttendanceManagement/faculty-portal.html',
-                  {"faculty_instance": faculty_instance, "courses": course_list})
-    #return render(request, 'AttendanceManagement/faculty-portal.html', {"faculty_instance" : faculty_instance})
+    try:
+        courses_list = get_list_or_404(CourseInfo,fid=fid)
+        final_list = []
+        course_list = []
+        for c in courses_list:
+            if c.cid not in final_list:
+                final_list.append(c.cid)
+                course_list.append(c)
+        for f in final_list:
+            print(f)
+        return render(request, 'AttendanceManagement/faculty-portal.html',
+                      {"faculty_instance": faculty_instance, "courses": course_list, "give_attendance":True})
+        #return render(request, 'AttendanceManagement/faculty-portal.html', {"faculty_instance" : faculty_instance})
+    except:
+        return render(request, 'AttendanceManagement/faculty-portal.html', {"faculty_instance": faculty_instance, "courses.cid": 'no course taken', "give_attendance":False})
 
 
 def course_archive(request):

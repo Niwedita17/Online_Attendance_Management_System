@@ -24,7 +24,10 @@
       <div class="container">
         <div class="row">
             <table style="width:100%">
-            <tr> 
+            <tr>
+                 <th align="center" height="50px" style="overflow: hidden;
+                border: 1px solid #ccc;
+                background-color: #f1f1f1;">Student ID</th>
                 <th align="center" height="50px" style="overflow: hidden;
                 border: 1px solid #ccc;
                 background-color: #f1f1f1;">Date</th> 
@@ -37,6 +40,9 @@
             </tr>
                 {% for courses in course %}
             <tr>
+                <td align="center" style="overflow: hidden;
+          border: 1px solid #ccc;
+          background-color: #f1f1f1;">{{courses.sid}}</td>
                 <td align="center" style="overflow: hidden;
           border: 1px solid #ccc;
           background-color: #f1f1f1;">{{courses.date}}</td>

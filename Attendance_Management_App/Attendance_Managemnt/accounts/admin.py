@@ -19,7 +19,17 @@ class FacultyAdmin(admin.ModelAdmin):
     ordering = ('fid',)
     search_fields = ('fid', 'f_fname')
 
+@admin.register(CourseAttendance)
+class CourseAttendanceAdmin(admin.ModelAdmin):
+    list_display = ('sid','cid', 'date', 'attendance')
+    ordering = ('sid',)
+    search_fields = ('sid', 'cid')
 
-admin.site.register(CourseInfo)
+@admin.register(CourseInfo)
+class CourseAdmin(admin.ModelAdmin):
+    list_display = ('cid', 'cname', 'fid')
+    ordering = ('cid',)
+    search_fields = ('cid', 'cname')
+
 admin.site.register(CourseRegistration)
-admin.site.register(CourseAttendance)
+

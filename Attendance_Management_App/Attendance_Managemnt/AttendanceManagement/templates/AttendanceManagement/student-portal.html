@@ -8,6 +8,10 @@
     overflow-x: hidden !important;
 
 }
+.align-center {
+
+    text-align:center;
+}
 #profile{
     background:  #313b3d;;
     width:100%;
@@ -83,11 +87,12 @@
 
 </style>
 {% endblock %}
+
 {% block main_content %}
 <section id="imgBanner">
       <h2>{{student_instance.s_fname}} {{student_instance.s_lname}}</h2>
     </section>
-
+<div>
   <section id="profile">
       <form>
        			<div class="wrap-input100 validate-input rs1-wrap-input100 bg2">
@@ -126,25 +131,29 @@
 					<span class="label-input100">PINCODE</span>
 					<label class="input100" type="text" name="pincode" >{{ student_instance.pincode }}</label>
 				</div>
-
             </form>
     </section>
+</div>
 	<br><br><br>
-<hr>
-	<scetion id="courses">
+
+<div align="center">
+	<section id="courses">
 		{% for c in courses %}
-		{{c.cid}}
+		<div class="wrap-input100 validate-input rs1-wrap-input100 bg2">{{c}}</div>
 		{% endfor %}
-	</scetion>
+	</section>
+</div>
 
 <br><br><br>
-<div>
+<div align="center">
 	<br>
 	<form method="post" action="{% url 'AttendanceManagement:view'  %}">
 			{% csrf_token %}
-			<input class="form-control mr-sm-2" placeholder="Enter cid" name="cid" type="text">
+			<input class="form-control mr-sm-2" placeholder="Enter cid" name="cid" type="text" style="width:50%">
+		<br>
 			<button type="submit" class="btn btn-primary">View Attendance</button>
 		</form>
+	<br><br><br>
 </div>
-
 {% endblock %}
+

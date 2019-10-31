@@ -172,7 +172,11 @@
                         <input class="form-control mr-sm-2" placeholder="Enter cid" name="cid" type="text">
                         <input class="form-control mr-sm-2" placeholder="Enter sid" name="sid" type="text">
                         <input class="form-control mr-sm-2" placeholder="Enter attendance" name="attendance" type="text">
-			              <button type="submit" class="btn btn-primary">Give Attendance</button>
+						{% if give_attendance == True %}
+			              <button type="submit" class="btn btn-primary ">Give Attendance</button>
+						{% else %}
+							<button type="submit" class="btn btn-primary disabled">Give Attendance</button>
+						{% endif %}
 		            </form>
 </div>
 {% endblock %}

@@ -28,7 +28,6 @@
                 <li><a href="{% url 'AttendanceManagement:course_archive' %}">Courses</a></li>
                     <li><a href="{% url 'accounts:loginStudent' %}">Student Portal</a></li>
                     <li><a href="{% url 'accounts:loginFaculty' %}">Faculty Portal</a></li>
-                <li><a href="contact.html">Contact</a></li>
                   {% if user.is_authenticated %}
                  <li>
                       <form class="logout-link" action="{% url 'accounts:logout' %}"  method="post">

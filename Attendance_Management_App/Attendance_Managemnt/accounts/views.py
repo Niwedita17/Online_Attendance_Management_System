@@ -69,7 +69,7 @@ def signup_view_student(request):
                 login(request, user)
 
                 # redirect to accounts page:
-                return HttpResponseRedirect(reverse('AttendanceManagement:student', args=(user_id,)))
+                return HttpResponseRedirect(reverse('AttendanceManagement:studentSignup', args=(user_id,)))
 
     # No post data available, let's just show the page.
     else:
@@ -154,7 +154,7 @@ def signup_view_faculty(request):
                 login(request, user)
 
                 # redirect to accounts page:
-                return HttpResponseRedirect(reverse('AttendanceManagement:faculty', args=(user_id,)))
+                return HttpResponseRedirect(reverse('AttendanceManagement:facultySignup', args=(user_id,)))
     # No post data available, let's just show the page.
     else:
         print("6")
