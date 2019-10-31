@@ -29,38 +29,18 @@ def student_profile(request, sid):
     for f in final_list:
          print(f)
     return render(request, 'AttendanceManagement/student-portal.html',
-                  {"student_instance": student_instance, "courses_registered": course_list})
+                  {"student_instance": student_instance, "courses":course_list})
 
 
-def student_registration(request, sid, cid):
-    if request.method == 'post':
-        reg = CourseRegistration(sid=sid, cid=cid)
-        reg.save()
-        return redirect('AttendanceManagement/student-registration.html')
-
-
-"""def student_attendance(request, sid, cid):
-    if request.method == 'POST':
-        print("1")
-        course_instance = get_object_or_404(CourseInfo, pk=cid)
-        registered = get_list_or_404(CourseAttendance, sid=sid, cid=cid)
-        faculty_instance = course_instance.fid
-
-    #registered = get_list_or_404(CourseAttendance, pk=sid)
-    #courses = registered.objects_all(registered.cid == cid)
-        return render(request, 'AttendanceManagement/attendance.html', {"course_instance": course_instance,
-                                                                    "faculty_instance": faculty_instance,
-                                                                    "courses_registered": registered })
-
-
-def reason_for_absence(request, sid, cid, date):
-    if request.method == 'POST':
-        t = CourseAttendance.objects.get( sid=sid, cid = cid,date= date)
-        t.reason_for_absence = reason_for_absence  # change field
-        t.save()  #
-        return HttpResponseRedirect(reverse('AttendanceManagement:student_attendance', args=(sid,cid,)))
-        #return render(request, 'AttendanceManagement/attendance.html')
-"""
+def view_attendance(request):
+    if request.method == "POST":  # view existing booking
+        cid = request.POST['cid']
+        print(cid)
+        if cid:
+            course = get_list_or_404(CourseAttendance, cid=cid)
+            return render(request, 'AttendanceManagement/attendance.html', {'course': course,'cid':cid})
+        else:
+            return render(request, 'AttendanceManagement/student-portal.html', {'error_message_booking': 'No booking found'})
 
 def faculty_profile(request, fid):
     faculty_instance = get_object_or_404(FacultyInfo, pk=fid)
@@ -78,12 +58,4 @@ def course_detail(request, cid):
         course_instance = get_object_or_404(CourseInfo, pk=cid)
         faculty_instance = course_instance.fid
         return render(request, 'AttendanceManagement/course-single.html', {"course_instance": course_instance, "faculty_instance": faculty_instance})
-
-
-# def student_registration(request, sid, cid):
-#     if request.method == 'post':
-#         reg = CourseRegistration(sid=sid, cid=cid)
-#         reg.save()
-#         return redirect('AttendanceManagement/student-registration')
-
 

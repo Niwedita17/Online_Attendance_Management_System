@@ -16,8 +16,8 @@
 {% block main_content %}
 
 <section id="imgBanner">
-      <h2>{{course_instance.cname}}</h2>
-      <h3>{{faculty_instance.f_fname}}{{faculty_instance.f_lname}}</h3>
+      <h2>{{cid}}</h2>
+<!--      <h3>{{faculty_instance.f_fname}}{{faculty_instance.f_lname}}</h3>-->
     </section>
 
     <section id="student-attendance">
@@ -31,35 +31,27 @@
                 <th align="center" style="overflow: hidden;
                 border: 1px solid #ccc;
                 background-color: #f1f1f1;">Attendance</th>
-                <th align="center" style="overflow: hidden;
-                border: 1px solid #ccc;
-                background-color: #f1f1f1;">Reason for Absence</th> 
+<!--                <th align="center" style="overflow: hidden;-->
+<!--                border: 1px solid #ccc;-->
+<!--                background-color: #f1f1f1;">Reason for Absence</th> -->
             </tr>
-                {% for courses in courses_registered %}
+                {% for courses in course %}
             <tr>
                 <td align="center" style="overflow: hidden;
           border: 1px solid #ccc;
           background-color: #f1f1f1;">{{courses.date}}</td>
                 <td align="center" style="overflow: hidden;
           border: 1px solid #ccc;
-          background-color: #f1f1f1;">{{course.attendance}}</td>
-                <td align="center" style="overflow: hidden;
-                      border: 1px solid #ccc;
-                      background-color: #f1f1f1;">
-                      <textarea style="width: 1000px">
-                        {{courses.reason_for_absence}}
-                        </textarea>
-                     <form method="post" action="{% url 'AttendanceManagement:reason_for_absence' courses.sid courses.cid courses.date" %}>
-                        {% csrf_token %}
-                          {% if request.GET.next %}
-                            <input type="hidden" name="next" value="{{ request.GET.next }}">
-                        {% endif %}
-                         <button class="tablinks">
-                            Submit
-                        </button>
-                    </form>
-<!--                      <button class="tablinks" onclick="redirect()">Submit</button>-->
-                </td> 
+          background-color: #f1f1f1;">{{courses.attendance}}</td>
+<!--                <td align="center" style="overflow: hidden;-->
+<!--                      border: 1px solid #ccc;-->
+<!--                      background-color: #f1f1f1;">-->
+<!--                      <textarea style="width: 1000px">-->
+<!--                        {{courses.reason_for_absence}}-->
+<!--                        </textarea>-->
+<!--&lt;!&ndash;-->
+<!--&lt;!&ndash;                      <button class="tablinks" onclick="redirect()">Submit</button>&ndash;&gt;-->
+<!--                </td> -->
             </tr>
                 {% endfor %}
             </table> 
