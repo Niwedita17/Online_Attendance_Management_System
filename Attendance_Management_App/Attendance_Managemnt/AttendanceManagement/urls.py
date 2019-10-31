@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^courseArchive/$', user_views.course_archive, name='course_archive'),
     url(r'^course/(?P<cid>[A-Z]{2}[0-9]{3})/$', user_views.course_detail, name='course_detail'),
     url(r'^view/$', user_views.view_attendance, name='view'),
+    url(r'^give/$', user_views.give_attendance, name='give'),
     #url(r'^student/(?P<sid>[0-9]{2}[A-Z]{2}[0-9]{3})/register/$', user_views.student_registration, name='student_registration'),
     #url(r'^student/(?P<sid>[0-9]{2}[A-Z]{2}[0-9]{3})/register/$', user_views.student_registration, name='student_registration'),
     #url(r'^student/(?P<sid>[0-9]{2}[A-Z]{2}[0-9]{3})/(?P<cid>[A-Z]{2}[0-9]{3})/$', user_views.student_attendance, name='student_attendance'),

@@ -1,0 +1,71 @@
+{% extends 'AttendanceManagement/base.html' %}
+
+{% block style_content %}
+<style >
+  .tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+</style>
+{% endblock %}
+{% block main_content %}
+
+<section id="imgBanner">
+      <h2>{{cid}}</h2>
+<!--      <h3>{{faculty_instance.f_fname}}{{faculty_instance.f_lname}}</h3>-->
+    </section>
+
+    <section id="student-attendance">
+      <div class="container">
+        <div class="row">
+            <table style="width:100%">
+            <tr> 
+                <th align="center" height="50px" style="overflow: hidden;
+                border: 1px solid #ccc;
+                background-color: #f1f1f1;">Date</th> 
+                <th align="center" style="overflow: hidden;
+                border: 1px solid #ccc;
+                background-color: #f1f1f1;">Attendance</th>
+<!--                <th align="center" style="overflow: hidden;-->
+<!--                border: 1px solid #ccc;-->
+<!--                background-color: #f1f1f1;">Reason for Absence</th> -->
+            </tr>
+                <tr>
+                    <form method="post" action="{% url 'AttendanceManagement:give_attendance'  %}">
+			            {% csrf_token %}
+                        <input class="form-control mr-sm-2" placeholder="Enter cid" name="cid" type="text">
+                        <input class="form-control mr-sm-2" placeholder="Enter sid" name="sid" type="text">
+                        <input class="form-control mr-sm-2" placeholder="Enter ateendance" name="attendance" type="text">
+			              <button type="submit" class="btn btn-primary">View Attendance</button>
+		            </form>
+                </tr>
+                {% for a in attendance_instance %}
+            <tr>
+                <td align="center" style="overflow: hidden;
+          border: 1px solid #ccc;
+          background-color: #f1f1f1;">{{a.date}}</td>
+                <td align="center" style="overflow: hidden;
+          border: 1px solid #ccc;
+          background-color: #f1f1f1;">{{courses.attendance}}</td>
+<!--                <td align="center" style="overflow: hidden;-->
+<!--                      border: 1px solid #ccc;-->
+<!--                      background-color: #f1f1f1;">-->
+<!--                      <textarea style="width: 1000px">-->
+<!--                        {{courses.reason_for_absence}}-->
+<!--                        </textarea>-->
+<!--&lt;!&ndash;-->
+<!--&lt;!&ndash;                      <button class="tablinks" onclick="redirect()">Submit</button>&ndash;&gt;-->
+<!--                </td> -->
+            </tr>
+                {% endfor %}
+            </table> 
+        </div>
+
+        </div>
+    </section>
+	{% endblock %}

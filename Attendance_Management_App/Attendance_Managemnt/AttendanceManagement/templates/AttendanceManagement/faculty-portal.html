@@ -150,4 +150,29 @@
 
             </form>
     </section>
+<br><br>
+<br><br><br>
+<hr>
+<div>
+	<section id="courses">
+		{% for c in courses %}
+		{{c.cid}}
+		{% endfor %}
+	</section>
+</div>
+
+
+<br><br><br>
+<div>
+	<br><br>
+	<form method="post" action="{% url 'AttendanceManagement:give'  %}">
+			            {% csrf_token %}
+						<input class="form-control mr-sm-2" type="hidden" name="fid" value="{{faculty_instance.fid}}">
+<!--						<input class="form-control mr-sm-2" placeholder="Enter fid" name="fid" type="text">-->
+                        <input class="form-control mr-sm-2" placeholder="Enter cid" name="cid" type="text">
+                        <input class="form-control mr-sm-2" placeholder="Enter sid" name="sid" type="text">
+                        <input class="form-control mr-sm-2" placeholder="Enter attendance" name="attendance" type="text">
+			              <button type="submit" class="btn btn-primary">Give Attendance</button>
+		            </form>
+</div>
 {% endblock %}
